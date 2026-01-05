@@ -32,14 +32,14 @@ Pravidla pro zápis identifikátorů:
 2. Identifikátory nemohou začínat numerickým znakem.
 3. Jako identifikátory nemohou být použita klíčová slova.
 4. Součástí identifikátorů nemohou být symboly jako např. [!@#$%] a další.
-5. Identifikátory mohou mít libovolnou délku.    
+5. Identifikátory mohou mít libovolnou délku.
 '''
 
 """
 Cvičení 1:
 
 Identifikátory pro označení entit (proměnných nebo konstant) na následujících řádcích jsou použity zčásti
-správně, ale zčásti také špatně. Oddělte zrno od plev - zakomentujte všechny špatně zadané řádky a připište do 
+správně, ale zčásti také špatně. Oddělte zrno od plev - zakomentujte všechny špatně zadané řádky a připište do
 komentáře, proč byl identifikátor použit nesprávně. Navrhněte pod komentářem správné řešení.
 """
 
@@ -47,10 +47,12 @@ komentáře, proč byl identifikátor použit nesprávně. Navrhněte pod koment
 import_from = 'China'
 
 x = 0
-global = 1
+#global = 1 - global je scope variablu, v tomto pripade uz je automaticky global, hlavni chybou je, ze chybi nazev variablu
+y = 1
 PI = 3.14
 city = "Opava"
-hilda@sspu-opava.cz = 'Hilda Dokonalá'
+#hilda@sspu-opava.cz = 'Hilda Dokonalá' - variable obsahuje zakazane znaky
+users = {1:{'name':'Hilda Dokonalá', 'email':'hilda@sspu-opava.cz'}}
 password2 = 'TajneHeslo'
-007agent = 'James Bond'
-
+# 007agent = 'James Bond'  - variable nema zacit cisly
+agent007 = 'James Bond'

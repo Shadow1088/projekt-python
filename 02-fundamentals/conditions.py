@@ -2,7 +2,7 @@
 # == - zohledňuje logický typ
 print(10 == "10")  # False
 # Při porovnávání řetězců se vychází z hodnot kódů jednotlivých znaků
-print("dad" > "bad")  # True
+print("dad" > "zad")  # True
 # Zjištění ordinální hodnoty kódu znaku
 print(f"B={ord('B')}, b={ord('b')}")
 
@@ -30,3 +30,11 @@ if 18 <= age < 65:
     print("aktivni vek")
 else:
     print("neaktivni vek")
+
+
+###############
+
+status = "employed"
+experience = 51
+skill = "advanced" if 10 < experience < 50 and status=="employed" else "advanced but unemployed" if experience > 50 else "noobie"
+print(skill)

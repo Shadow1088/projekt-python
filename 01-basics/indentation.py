@@ -21,12 +21,12 @@ for i in range(1, 10):
 '''
 Dokumentační řetězce v Pythonu (docstrings)
 
-Víceřádkový řetězec následující hned po záhlaví funkce v Pythonu je nazýván docstring (documentation string neboli 
+Víceřádkový řetězec následující hned po záhlaví funkce v Pythonu je nazýván docstring (documentation string neboli
 dokumentační řetězec) a obsahuje stručné vysvětlení toho, co funkce provádí.
 Přestože je to nepovinný doplněk programového kódu, je považován za "good programming practice", tedy jednu z dobrých
 zásad, které by měl programátor v Pythonu dodržovat.
 Docstrings se zapisují mezi trojnásobné uvozovky (tedy podobně jako komentáře).
-Tyto dokumentační řetězce jsou přístupné prostřednictvím "magického" __doc__ atributu funkce.    
+Tyto dokumentační řetězce jsou přístupné prostřednictvím "magického" __doc__ atributu funkce.
 '''
 
 # Odsazení bloku kódu uvnitř funkce a použití docstring
@@ -45,8 +45,16 @@ greet('Hilda')
 """
 Cvičení 2:
 
-Vytvořte libovolně pojmenovanou vlastní funkci s minimálně jedním parametrem, v níž využijete cyklus for, 
+Vytvořte libovolně pojmenovanou vlastní funkci s minimálně jedním parametrem, v níž využijete cyklus for,
 aspoň jednu podmínku if a funkci print(). Dodržte správné odsazování kódu a opatřete funkci stručnou dokumentací.
-Do konzole vypište nejprve docstring vaší funkce a potom zavolejte funkci samotnou.   
+Do konzole vypište nejprve docstring vaší funkce a potom zavolejte funkci samotnou.
 """
-
+def add(number: int, plus: float=0.2, amount: int=5):
+    '''This func adds number x, y times, to the parameter z'''
+    result = number
+    if amount:
+        for i in range(amount):
+            result+=plus
+    print(result)
+print(add.__doc__)
+add(number=5,amount=0)

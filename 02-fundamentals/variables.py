@@ -22,16 +22,18 @@ iq = None
 '''
 V Pythonu se ale ve skutečnosti nepřiřazují do proměnných hodnoty, ale jen reference na objekt (hodnotu).
 Každý objekt (instance třídy) má jedinečnou hodnotu (value), typ (type) a identitu (ID).
-Proto i typy proměnných poukazují na určitou výchozí třídu, z níž byl objekt vytvořen. 
-Identita objektu je vyjádřena jeho identifikačním číslem (ID), které je adresou paměťového místa, ve kterém je hodnota uložena. 
+Proto i typy proměnných poukazují na určitou výchozí třídu, z níž byl objekt vytvořen.
+Identita objektu je vyjádřena jeho identifikačním číslem (ID), které je adresou paměťového místa, ve kterém je hodnota uložena.
 Některé objekty mohou mít explicitně přiřazené jméno, obecně označované jako proměnná:
 '''
 
 '''Úkol A'''
 #? Najděte na Internetu, jakými funkcemi lze v Pythonu zjistit
 #? a) typ objektu
+first_var = 10
+print(type(first_var))
 #? b) identitu objektu (jeho adresu v paměti)
-#? Ukažte to na příkladech proměnných students_count, rating, is_published a vypište výstupy do konzole
+print(hex(id(first_var)))
 
 # Numerické operátory
 # print(10 + 3)
@@ -66,16 +68,22 @@ hexadecimal = 0x12c #Hexadecimal Literal
 
 '''Úkol B'''
 #? Vypište do poznámky všechny bitové operátory, které nabízí Python
+# |, &, ~, ^, <<, >>
 #? Do proměnné myself_binary uložte binární číslo vytvořené na základě osmi prvních znaků z vašeho jména a příjmení (souhláska = 1, samohláska 0)
-#? Příklad - HildaDok: 10110101
+#? Trumpeta: 11011010
 #? Vypište toto binární číslo v desítkové soustavě
+print(int('11011010', base=2))
 #? Pro toto binární číslo proveďte nejprve bitový posun o 2 bity vpravo, poté vypište výsledek v desítkové soustavě
+bnum = 0b11011010 >> 2
+print(bnum)
 #? Proveďte bitový součin hexadecimálního čísla "1A" a vašeho binárního čísla a opět vypište v desítkové soustavě
+xnum = 0b11010 & 0b11011010
+print(bin(xnum))
 #? Výsledek zobrazte jako formátovaný řetězec - např. "Binární součin čísla 0b11010 a 0b10110101 je 0b10000"
+print(f"Binární součin čísla 0b11010 a 0b11011010 je 0b11010")
 
-
-'''Python plně podporuje operace v plovoucí řádové čárce (tj. desetinná čísla). 
-Operátor pracující s různými typy operandů si nejprve zkonvertuje celá čísla na čísla 
+'''Python plně podporuje operace v plovoucí řádové čárce (tj. desetinná čísla).
+Operátor pracující s různými typy operandů si nejprve zkonvertuje celá čísla na čísla
 v plovoucí řádové čárce a následně provede výpočet (obdobné chování jako v jazyce C).
 Výsledek je vždy desetinné číslo.
 '''
@@ -99,21 +107,21 @@ import math
 # print(int(x) + 20)
 
 # Komplexní čísla a Python
-'''Python plně podporuje komplexní čísla, přičemž imaginární číslo je zapisováno s příponou "j" nebo "J". 
+'''Python plně podporuje komplexní čísla, přičemž imaginární číslo je zapisováno s příponou "j" nebo "J".
 Komplexní čísla zapisujeme ve tvaru "(Re + Imj)" nebo je můžeme vytvořit pomocí interní funkce "complex(Re, Im)":
 '''
 #Complex Literal
 complex = 3.14j
 
-'''Komplexní čísla jsou vždy reprezentována dvojicí desetinných čísel, reálnou a imaginární částí. 
+'''Komplexní čísla jsou vždy reprezentována dvojicí desetinných čísel, reálnou a imaginární částí.
 Chceme-li získat velikosti těchto částí čísla z, použijeme zápisu z.real a z.imag:'''
-# z = 4.5 + 0.5j
-# print(z, z.imag, z.real)
+z = 4.5 + 0.5j
+print(z, z.imag, z.real)
 
-'''Poněvadž v matematice neexistuje způsob, jak převést komplexní číslo na reálné, 
-ani Python nedovoluje použití konverzních funkcí float(), int() a long() s komplexním argumentem. 
-Raději použijte funkci abs(z) pro získání absolutní hodnoty komplexního čísla, 
-nebo zápis z.real reprezentují reálnou část čísla: 
+'''Poněvadž v matematice neexistuje způsob, jak převést komplexní číslo na reálné,
+ani Python nedovoluje použití konverzních funkcí float(), int() a long() s komplexním argumentem.
+Raději použijte funkci abs(z) pro získání absolutní hodnoty komplexního čísla,
+nebo zápis z.real reprezentující reálnou část čísla:
 '''
 # Následující řádek vyvolá chybu
 # print(float(z))
@@ -135,8 +143,6 @@ Speciální proměnná _ reprezentuje předešlý výsledek.
 113.06
 >>>
 
-Varování: Hodnota proměnné _ by nikdy neměla být modifikována uživatelem. 
-Pokud byste jí přiřadili hodnotu, vytvořili byste nezávislou lokální proměnnou se stejným jménem, 
+Varování: Hodnota proměnné _ by nikdy neměla být modifikována uživatelem.
+Pokud byste jí přiřadili hodnotu, vytvořili byste nezávislou lokální proměnnou se stejným jménem,
 která by zakryla interní proměnnou s tímto chováním.'''
-
-

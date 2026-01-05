@@ -51,3 +51,12 @@ def send_message():
 
 send_message()
 print(message)
+
+ids = [1,23,3,4,5,15,6,32,1,5,46]
+
+################
+def prrr(*idss):
+    for num in idss:
+        print(num)
+
+prrr(ids)

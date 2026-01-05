@@ -56,23 +56,23 @@ print(f'\tVypíše každý druhý prvek ze seznamu letters: {letters[::2]}')
 # ??? 1. cvičení ???
 # Doplňte podle zadání chybějící u následujících tří výpisů
 print('\n1. Cvičení\n***********************************************************************************************')
-print(f'\tVypíše poslední 2 prvky ze seznamu numbers: ???')
-print(f'\tVypíše každý sudý prvek ze seznamu letters: ???')
-print(f'\tVypíše všechny hodnoty z mixed_list kromě dvou posledních: ???')
-print(f'\tVypíše hodnotu prvku name ze slovníku umístěného v seznamu mixed_list: ???')
-print(f'\tVypíše hodnotu předposledního čísla z listu numbers umístěného v seznamu mixed_list: ???')
+print(f'\tVypíše poslední 2 prvky ze seznamu numbers: {letters[-2:]}')
+print(f'\tVypíše každý sudý prvek ze seznamu letters: {[item for item in letters if letters.index(item)%2]}')
+print(f'\tVypíše všechny hodnoty z mixed_list kromě dvou posledních: {mixed_list[:-2]}')
+print(f'\tVypíše hodnotu prvku name ze slovníku umístěného v seznamu mixed_list: {list(mixed_list[4].values())[0]}')
+print(f'\tVypíše hodnotu předposledního čísla z listu numbers umístěného v seznamu mixed_list: {mixed_list[3][-1][-2]}')
 print('***********************************************************************************************\n')
 # ??? Konec 1. cvičení ???
 
 '''
 Úpravy hodnot v seznamech
-Zásadní rozdíl mezi řetězci a seznamy spočívá v možnosti změny prvků. 
-Zatímco u řetězců to nepřipadá v úvahu (jde o typ neměnný neboli imutable), 
-seznamy se jí nebrání - tento typ nazýváme proměnný neboli mutable. 
-Seznam lze změnit: 
+Zásadní rozdíl mezi řetězci a seznamy spočívá v možnosti změny prvků.
+Zatímco u řetězců to nepřipadá v úvahu (jde o typ neměnný neboli imutable),
+seznamy se jí nebrání - tento typ nazýváme proměnný neboli mutable.
+Seznam lze změnit:
 1. Přiřazením nového prvku na určitý index.
 2. Přiřazením hodnoty určité subsekvenci (množině prvků) seznamu.
-3. Použitím metody append() - přidá prvek na konec seznamu. 
+3. Použitím metody append() - přidá prvek na konec seznamu.
 4. Použitím metody insert() přidá prvek na specifické místo seznamu.
 5. Použitím metody extend() - přidá několik prvků na konec seznamu.
 6. Použitím operátoru + můžeme kombinovat 2 seznamy (tzv. concatenation)
@@ -111,10 +111,10 @@ print(f'\t7. Použitím operátoru * můžeme opakovat prvky seznamu: {letters}\
 
 '''
 Odstraňování hodnot v seznamech
-Hodnoty ze seznamu může odstranit: 
+Hodnoty ze seznamu může odstranit:
 1. Použitím klíčového slova del.
 2. Použitím metody remove() - odstraní specifickou hodnotu.
-3. Použitím metody pop() - odstraní prvek na udané pozici. 
+3. Použitím metody pop() - odstraní prvek na udané pozici.
 4. Použitím metody clear() - odstraní všechny hodnoty ze seznamu.
 5. Přiřazením prázdného seznamu k vybrané množině prvků.
 '''
@@ -160,11 +160,11 @@ print(f'\tŘetězec malých písmen: {lower_letters}')
 # Chceme-li při procházení cyklem pracovat kromě hodnot i s indexy, použijeme funkci enumerate
 for index, letter in enumerate(letters):
     if letter == '?':
-        letters[index] = index
+        letters[index] = str(index)
 print(f'\tIndexy místo otazníků: {letters}\n')
 
 '''
-Vyhledávání hodnot v seznamu 
+Vyhledávání hodnot v seznamu
 '''
 print('Vyhledávání hodnot v seznamu\n------------------------------------------------')
 # Doplnění seznamu o 3 písmena "G" od indexu 10
@@ -179,9 +179,9 @@ if 'G' in letters:
 
 '''
 Řazení hodnot v seznamu
-K řazení můžeme použít metodu sort(), která změní uspořádání hodnot v původním seznamu. 
+K řazení můžeme použít metodu sort(), která změní uspořádání hodnot v původním seznamu.
 Funkce sorted() ponechává původní seznam nedotčen a vrací nový uspořádaný seznam.
-Pomocí klíčového parametru reverse můžeme rozhodovat o způsobu řazení - vzestupně, sestupně. 
+Pomocí klíčového parametru reverse můžeme rozhodovat o způsobu řazení - vzestupně, sestupně.
 '''
 print('Řazení hodnot v seznamu\n------------------------------------------------')
 
@@ -210,8 +210,8 @@ print(f'\tŘazení seznamu tvořeného tuples - použití vlastní funkce, kter�
 
 '''
 Lambda výrazy (funkce)
-Lambda výrazy/funkce jsou tzv. anonymní funkce (funkce, které nemají jméno). 
-Používají se většinou na jednořádkové malé funkce. 
+Lambda výrazy/funkce jsou tzv. anonymní funkce (funkce, které nemají jméno).
+Používají se většinou na jednořádkové malé funkce.
 Lambda výrazy nemohou obsahovat, oproti normálním funkcím, příkazy.
 Výraz:
 lambda argumenty: výraz
@@ -248,7 +248,7 @@ print(f'\tVýběr osob mladších 25 let - použití funkce filter(): {names}\n'
 
 '''
 Funkce zip() dokáže spojit hodnoty různých seznamů a vytvoří z nich seznam několika množin (set).
-Délka výsledného seznamu (počet prvků) bude odpovídat délce nejkratšího spojovaného seznamu.   
+Délka výsledného seznamu (počet prvků) bude odpovídat délce nejkratšího spojovaného seznamu.
 '''
 print('Příklad použití funkce zip()\n------------------------------------------------')
 # Použití zip funkce - spojí seznamy marks a students
@@ -258,7 +258,7 @@ print('\t', list(zip('Karel', numbers, letters)))
 
 '''
 Rozbalení seznamu do proměnných
-Obsah seznamu můžeme přiřadit do několika proměnných - podle jejich uspořádání. 
+Obsah seznamu můžeme přiřadit do několika proměnných - podle jejich uspořádání.
 Proměnná označená * (unpacking operator) přijme všechny ostatní hodnoty seznamu, které nemohly být přiřazeny do konkrétních proměnných.
 Kdyby v tomto případě nebyla použita, došlo by k chybě, protože by v seznamu nadbývaly nepřiřazené hodnoty.
 '''
@@ -275,14 +275,24 @@ print(f'\tSbalení seznamů do proměnné values: {values}\n')
 
 # ??? 2. cvičení ???
 # a) Vygenerujte do proměnné hundreds seznam čísel v rozsahu 1 až 2000. V seznamu budou pouze čísla dělitelná 200 beze zbytku.
+hundreds = [200*i for i in range(2000//200)]
+print(hundreds)
 # b) Vygenerujte do proměnné ascii seznam 50 náhodně zvolených znaků - velkých písmen anglické abecedy.
+from random import randint
+ascii = [str(randint(65,91)) for char in range(50)]
+print(ascii)
 # c) Vymažte ze seznamu hundreds 3 první a 3 poslední hodnoty.
+hundreds = hundreds[3:-2]
+print(hundreds)
 # d) Projděte seznam ascii a uložte do proměnné unique (typu list) pouze jen ty znaky, které se v seznamu ascii neopakují.
+unique = {*ascii}
+print(unique)
 # e) Zkraťte délku seznamu ascii podle délky seznamu hundreds. Zkombinujte oba seznamy do proměnné combine tak,
 # aby vznikl seznam n-tic (list of tuples) v podobě (cislo, znak).
-# Snažte se vždy o co nejzhuštěnější kód - ideálně na 1 řádku (+ další řádek s kontrolním výpisem proměnné)
+print(*list(zip(hundreds, ascii)))
+# Snažte se vždy o kód ideálně na 1 řádku
 # import knihovny pro generování náhodných čísel
-from random import randint
+
 
 print(f'\n*************************************\nCvičení 2\n*************************************')
 
@@ -290,11 +300,25 @@ print(f'\n*************************************\nCvičení 2\n******************
 
 # ??? 3. cvičení ???
 # a) Přidejte do listu persons ještě n-tice (tuples) dalších 2 žen a 2 mužů.
+persons.extend([('Karel', 20, 'muž'),
+('Jana', 21, 'žena'),
+('Ivan', 40, 'muž'),
+('Milada', 50, 'žena')])
+#print(persons)
 # b) Použijte seznam (list) persons a do proměnné women z něj pomocí lambda výrazu i comprehensions vyhledejte všechny ženy.
+women1 = filter(lambda woman:woman[2][0]=="ž", persons)
+print(list(women1))
+women2 = [woman for woman in persons if (lambda woman:woman[2][0]=="ž")(woman) ]
+print(list(women2))
 # Seznam jmen žen poté vypište na samostatné řádky. Každý vypsaný řádek bude podtržen pomlčkami přesně podle délky jména.
+for name in women2:
+    print(name[0] + '\n' + len(name[0])*"_")
 # c) Použijte seznam (list) persons a do proměnné ipeople z něj pomocí lambda výrazu i comprehensions vyhledejte všechny osoby
 # obsahující ve jméně písmeno "i". Obsah listu ipeople poté převeďte do podoby řetězce, který bude odpovídat struktuře csv souboru.
 # Kromě jména, věku a pohlaví v něm budou vypsána i čísla indexů (jako 1. sloupec). Oddělovačem bude středník.
 # Záznamy budou seřazeny podle věku (sestupně).
+ipeople = [item for item in persons if (lambda name:"i" in name)(item[0].lower())]
+print(list(ipeople))
+
 
 print(f'\n*************************************\nCvičení 3\n*************************************')

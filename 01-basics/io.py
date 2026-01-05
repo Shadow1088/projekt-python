@@ -16,7 +16,7 @@ print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
 - *objects = hodnoty, které mají být vypsány
 - sep = separátor použitý mezi hodnotami; výchozí je mezera
 - end = čím má být výpis ukončen; výchozí hodnota je escape sekvence "\n", tedy ukončení řádku
-- file =  objekt, do něhož má být výpis proveden; výchozí hodnota je sys.stdout (standardní výstupní zařízení čili obrazovka)  
+- file =  objekt, do něhož má být výpis proveden; výchozí hodnota je sys.stdout (standardní výstupní zařízení čili obrazovka)
 '''
 # Příklad jednoduchého výpisu na obrazovku
 print('Standardní výpis na obrazovku')
@@ -44,7 +44,7 @@ x = 5; y = 10
 print('Hodnota x je {} a y je {}'.format(x, y))
 
 '''
-Pořadí výpisu argumentů můžeme změnit zadáním indexů do složených závorek. 
+Pořadí výpisu argumentů můžeme změnit zadáním indexů do složených závorek.
 '''
 
 # Příklad formátovaného výstupu s využitím dvou proměnných x a y
@@ -70,7 +70,7 @@ print('Hodnota čísla na 2 desetinná místa: %3.2f' %number)
 Vstup v Pythonu (input)
 
 Pro standardní vstup z obrazovky používáme funkci input([prompt]).
-[prompt] je nepovinný řetězec, výzva k zadání vstupu, která se objeví na obrazovce. 
+[prompt] je nepovinný řetězec, výzva k zadání vstupu, která se objeví na obrazovce.
 Je třeba si uvědomit, že zadaný vstup je vždy typu string a v případě požadovaného číselného vstupu je nutné
 provést konverzi pomocí funkcí int() (převádí na celé číslo) nebo float() (převádí na reálné číslo).
 '''
@@ -94,7 +94,7 @@ print('Výsledek vyhodnocení výrazu {1} je {0}'.format(eval(vyraz), vyraz))
 Cvičení 3:
 
 Vytvořte originální aplikaci v Pythonu, v níž požádáte uživatele o různé vstupní údaje a
-využijete na maximum možností výstupů do konzole. Může to být vtipný dotazník, jednoduchý znalostní test (např. 
+využijete na maximum možností výstupů do konzole. Může to být vtipný dotazník, jednoduchý znalostní test (např.
 z matematiky...), průvodce fiktivní instalací atd. Fantazii se meze nekladou a vtipnější vyhrává :-)
-Aplikaci uložte do samostatného souboru myapp.py.     
+Aplikaci uložte do samostatného souboru myapp.py.
 """

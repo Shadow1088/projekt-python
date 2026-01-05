@@ -1,8 +1,5 @@
 import random
 
-'''
-Příklad jednoduché třídy Point umožňující vytvářet symbolické grafické objekty - body
-'''
 class Point:
     # Atribut na úrovni třídy
     default_color = 'red'
@@ -18,23 +15,23 @@ class Point:
         # Atributy na úrovni objektu
         self.x = x
         self.y = y
-        #? Vytvořte atribut objektu color a přiřaďte mu výchozí barvu podle výchozího atributu třídy
+        # objektu color podle výchozího atributu třídy
         self.color = Point.default_color
 
-    # Magická metoda pro výpis textové informace o objektu
+    # Dunder metoda pro výpis textové informace o objektu
     def __str__(self):
         return f'({self.x}, {self.y})'
 
-    # Magická metoda pro porovnávání objektů
+    # Dunder metoda pro porovnávání objektů
     def __eq__(self, other):
         # Zjistí totožně umístěné objekty
         return self.x == other.x and self.y == other.y
 
-    # Magická metoda pro zjištění, zda je objekt větší (je dál od středu) než druhý
+    # Dunder metoda pro zjištění, zda je objekt větší (je dál od středu) než druhý
     def __gt__(self, other):
         return self.__sub__(Point.zero()) > other.__sub__(Point.zero())
 
-    # Magická metoda pro součet dvou objektů
+    # Dunder metoda pro součet dvou objektů
     def __add__(self, other):
         # Provede sečtení obou souřadnic a vrátí nový objekt
         return Point(self.x + other.x, self.y + other.y)
@@ -130,7 +127,7 @@ class InfoPoint(Point):
         super().__init__(x, y)
         self.url = url
 
-    # Přepsaná (override) magická metoda pro výpis textové informace o objektu - využití polymorfismu
+    # Přepsaná (override) Dunder metoda pro výpis textové informace o objektu - využití polymorfismu
     def __str__(self):
         return f'({self.x}, {self.y}, {self.url})'
 

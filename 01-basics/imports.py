@@ -4,7 +4,7 @@ Importování modulů v Pythonu
 Větší programy je žádoucí členit do samostatných modulů.
 Modul je soubor obsahující definice a příkazy v Pythonu.
 Moduly v Pythonu jsou uloženy v samostatných souborech s příponou .py.
-Definice uvnitř modulů mohou být importovány do jiných modulů nebo do interaktivní pythonovské konzoly.
+Definice uvnitř modulů mohou být importovány do jiných modulů nebo do interaktivní pythonovské konzole.
 Připojení modulů provádíme klíčovým slovem import.
 '''
 
@@ -41,7 +41,7 @@ Přehled všech instalovaných balíčků získáme příkazem:
 
 pip list
 
-Můžeme také vytvořit soubor requirements.txt, který obsahuje záznam všech tzv. závislostí naší aplikace - čili 
+Můžeme také vytvořit soubor requirements.txt, který obsahuje záznam všech tzv. závislostí naší aplikace - čili
 informace o všech balíčcích, které je nutné do virtuálního prostředí nainstalovat, aby aplikace mohla fungovat.
 Vytvoření souboru requirements.txt provedeme příkazem:
 
@@ -53,7 +53,7 @@ pip show <jméno_balíčku>
 
 Automatickou instalaci všech závislostí zaznamenaných v souboru requirements.txt provedeme příkazem:
 
-pip install -r requirements.txt     
+pip install -r requirements.txt
 '''
 
 # V konzoli virtuálního prostředí proveďte instalaci externího balíčku camelcase
@@ -67,7 +67,7 @@ print(c.hump(txt)) # Metoda hump() přeformátuje předaný řetězec podle zás
 """
 Cvičení 4:
 
-Použijte vhodné moduly v Pythonu (včetně jejich případné instalace) k tomu, abyste: 
+Použijte vhodné moduly v Pythonu (včetně jejich případné instalace) k tomu, abyste:
 1) vypsali aktuální datum a čas
 2) vypsali datum velikonoční neděle (easter) v následujících 5 letech
 3) vypsali nejbližší rok, v němž bude Štědrý den v neděli
@@ -75,3 +75,31 @@ Použijte vhodné moduly v Pythonu (včetně jejich případné instalace) k tom
 K řešení prvního úkolu je možné doporučit importovat interní modul datetime
 Řešení dalších dvou úkolů můžete odvodit z příkladů v dokumentaci k externímu modulu dateutil - viz https://pypi.org/project/python-dateutil/
 """
+# 1.
+from datetime import date, datetime
+print(datetime.now())
+
+
+# 2.
+from dateutil.easter import easter
+
+today = date.today()
+current_year = today.year
+
+print("Velikonocni nedele v pristich peti letech:")
+for i in range(5):
+    y = current_year + i
+    print(f"{y}: {easter(y)}")
+
+# 3.
+from dateutil.rrule import rrule, YEARLY, SU
+
+next_christmas_sunday = list(rrule(
+    freq=YEARLY,
+    dtstart=date.today(),
+    bymonth=12,
+    bymonthday=25,
+    byweekday=SU
+))[0]
+
+print("Nejblizsi 25.12. v nedeli:", next_christmas_sunday.strftime("%Y-%m-%d"))
